@@ -1,30 +1,23 @@
-package org.refactorizacionCodigo.consolidateduplicate.good;
+package org.refactorizacionCodigo.consolidateconditional.good;
 
 public class Main {
+
     private double estraSalary;
     private int seniority;
     private int education;
     private int incidents;
     private boolean cetification;
 
-    double calculateExtraSalary(){
+    double calculateSalary(){
 
         double result = 0;
+        if(!isElegibleExtraSalary()){
 
-        if(isElegibleExtraSalary()){
-            sendMessage();
-        }else {
-            result = 0;
         }
-
-        sendMessage(); // Ahora el metodo no se repite
+        // Calculate estra salary
+        result += 5;
         return result;
-    }
 
-    private void sendMessage() {
-        // Send Email
-        // connect smtp
-        System.out.println("Sending message");
     }
 
     private boolean isElegibleExtraSalary(){
@@ -32,4 +25,5 @@ public class Main {
         boolean experiencia = incidents > 10 || !cetification; // categoria
         return estudios || experiencia;
     }
+
 }
